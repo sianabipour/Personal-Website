@@ -1,0 +1,51 @@
+{% extends 'base_2.html' %}
+{% load static %}
+{% block body %}
+  <div class="page-content">
+    <div class="container">
+      <div class="resume-container">
+        <div style="margin-top: 5rem;margin-bottom: 3rem;" class="shadow-1-strong bg-white p-5" id="contact">
+          <div class="contant-section">
+            <h2 class="h2 fw-light text mb-4">Contact</h2>
+            <div class="row mb-4">
+              <div class="col-md-5" data-aos="fade-left" data-aos-delay="200">
+                <div class="mt-1">
+                  <div class="h6">
+                    <i class="fas fa-phone pe-2 text-muted" style="width:24px;opacity:0.85;"></i> +98936-560-2081
+                  </div>
+                  <div class="h6">
+                    <i class="far fa-envelope pe-2 text-muted" style="width:24px;opacity:0.85;"></i> sia.nb1379@gmail.com
+                  </div>
+                </div>
+                <div class="mt-5 d-print-none">
+                  <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-outline mb-4">
+                      <input type="text" id="name" class="form-control" required name="name" />
+                      <label class="form-label" for="name">Name</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="email" id="email" class="form-control" required name="email" />
+                      <label class="form-label" for="email">Email address</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <textarea class="form-control" style="resize: none;" id="message" rows="4" required name="text"></textarea>
+                      <label class="form-label" for="message">Message</label>
+                    </div>
+                    <button class="btn btn-secondary btn-block mb-4" type="submit">Send</button>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-7 d-print-none" data-aos="zoom-in" data-aos-delay="100">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.0598836117415!2d51.33232537550343!3d35.773905324877894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8dfd4e48d35e27%3A0xef0787fe0a76ce24!2sTehran%20Province%2C%20Tehran%2C%20Salaverdi%2C%20Iran!5e0!3m2!1sen!2s!4v1696001865929!5m2!1sen!2s" width="500" height="400" style="border:0;width:100%;" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block title %}
+  Contact
+{% endblock title %}

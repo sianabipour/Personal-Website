@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<!DOCTYPE html>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+
+    <title>Stand Blog - Post Details</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-stand-blog.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+
+{% endblock head %}
+{% block body %}
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+      <section class="page-heading" style="	background-image: url({% static '/images/header-background.jpg' %});">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-content">
+                <h4>Post Details</h4>
+                <h2>Single blog post</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Banner Ends Here -->
+
+
+
+
+    <section class="blog-posts grid-system">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="all-blog-posts">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="blog-post">
+                    <div class="blog-thumb">
+                      <img src="{{ article.image.url }}" alt="">
+                    </div>
+                    
+                    <div class="down-content">
+                      <span>{{article.header}}</span>
+                      <h4>{{article.title}}</h4>
+                      <ul class="post-info">
+                        <li>{{article.author}}</li>
+                        <li>{{article.date|date:'Y/M/d'}}</li>
+                        <li>10 Comments</li>
+                      </ul>
+                      <p>{{article.text}}</p>
+                      <div class="post-options">
+                        <div class="row">
+                          <div class="col-md">
+                            <ul class="post-share">
+                              <li><i class="fa fa-share-alt"></i></li>
+                              <li><a href="https://www.instagram.com/{{article.instagram}}">Intagram</a>,</li>
+                              <li><a href="https://www.twitter.com/{{article.twitter}}"> Twitter</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="sidebar-item comments">
+                    <div class="sidebar-heading">
+                      <h2>{{commentha.count}} comments</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        {% for i in commentha %}
+                        <li>
+                          {% if i.image %}
+                          <div class="author-thumb">
+                            <img src="{{i.image.url}}" alt="{{i.name}}">
+                          </div>
+                          {% endif %}
+                          <div class="right-content">
+                            <h4>{{i.name}}<span>{{i.date}}</span></h4>
+                            <h5>{{i.subject}}</h5>
+                            <h6>{{i.email}}</h6>
+                            <p>{{i.comment}}</p>
+                          </div>
+                        </li>
+                        {%endfor%}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="sidebar-item submit-comment">
+                    <div class="sidebar-heading">
+                      <h2>Your comment</h2>
+                    </div>
+                    <div class="content">
+                      <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                          <div class="col-md-6 col-sm-12">
+                            <fieldset>
+                              <input name="name" type="text" id="name" placeholder="Your name" required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-6 col-sm-12">
+                            <fieldset>
+                              <input name="email" type="text" id="email" placeholder="Your email" required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+                            <fieldset>
+                              <input name="subject" type="text" id="subject" placeholder="Subject">
+                            </fieldset>
+                          </div>
+                          <div class="col-lg-12">
+                            <fieldset>
+                              <textarea name="message" rows="6" id="message" placeholder="Type your comment" required=""></textarea>
+                            </fieldset>
+                          </div>
+                          <div class="col-lg-6">
+                            <fieldset>
+                              <label for="img" class="btn btn-label" was-verified>Aks bede</label>
+                              <input type="file" style="display:none" name="img" id="img" class="form-control">
+                            </fieldset>
+                          </div>
+                          <div class="col-lg-12">
+                            <fieldset>
+                              <button type="submit" id="form-submit" class="main-button">Submit</button>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="sidebar-item search">
+                    <form id="search_form" name="gs" method="GET" action="#">
+                      <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
+                    </form>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="sidebar-item recent-posts">
+                    <div class="sidebar-heading">
+                      <h2>Recent Posts</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        <li><a href="post-details.html">
+                          <h5>Vestibulum id turpis porttitor sapien facilisis scelerisque</h5>
+                          <span>May 31, 2020</span>
+                        </a></li>
+                        <li><a href="post-details.html">
+                          <h5>Suspendisse et metus nec libero ultrices varius eget in risus</h5>
+                          <span>May 28, 2020</span>
+                        </a></li>
+                        <li><a href="post-details.html">
+                          <h5>Swag hella echo park leggings, shaman cornhole ethical coloring</h5>
+                          <span>May 14, 2020</span>
+                        </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="sidebar-item categories">
+                    <div class="sidebar-heading">
+                      <h2>Categories</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        <li><a href="#">- Nature Lifestyle</a></li>
+                        <li><a href="#">- Awesome Layouts</a></li>
+                        <li><a href="#">- Creative Ideas</a></li>
+                        <li><a href="#">- Responsive Templates</a></li>
+                        <li><a href="#">- HTML5 / CSS3 Templates</a></li>
+                        <li><a href="#">- Creative &amp; Unique</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="sidebar-item tags">
+                    <div class="sidebar-heading">
+                      <h2>Tag Clouds</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Creative</a></li>
+                        <li><a href="#">HTML5</a></li>
+                        <li><a href="#">Inspiration</a></li>
+                        <li><a href="#">Motivation</a></li>
+                        <li><a href="#">PSD</a></li>
+                        <li><a href="#">Responsive</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
+
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+{%endblock body %}

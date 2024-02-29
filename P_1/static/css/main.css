@@ -1,0 +1,325 @@
+/* Timeline custom component */
+
+/* Icon 1 */
+
+.animated-icon1,
+.animated-icon2,
+.animated-icon3 {
+width: 30px;
+height: 20px;
+position: relative;
+margin: 0px;
+-webkit-transform: rotate(0deg);
+-moz-transform: rotate(0deg);
+-o-transform: rotate(0deg);
+transform: rotate(0deg);
+-webkit-transition: .5s ease-in-out;
+-moz-transition: .5s ease-in-out;
+-o-transition: .5s ease-in-out;
+transition: .5s ease-in-out;
+cursor: pointer;
+}
+
+.animated-icon1 span,
+.animated-icon2 span,
+.animated-icon3 span {
+display: block;
+position: absolute;
+height: 3px;
+width: 100%;
+border-radius: 9px;
+opacity: 1;
+left: 0;
+-webkit-transform: rotate(0deg);
+-moz-transform: rotate(0deg);
+-o-transform: rotate(0deg);
+transform: rotate(0deg);
+-webkit-transition: .25s ease-in-out;
+-moz-transition: .25s ease-in-out;
+-o-transition: .25s ease-in-out;
+transition: .25s ease-in-out;
+}
+
+.animated-icon1 span {
+background: rgba(0, 0, 0, .9);
+}
+
+.animated-icon2 span {
+background: #161818;
+}
+
+.animated-icon3 span {
+background: #f3e5f5;
+}
+
+.animated-icon1 span:nth-child(1) {
+top: 0px;
+}
+
+.animated-icon1 span:nth-child(2) {
+top: 10px;
+}
+
+.animated-icon1 span:nth-child(3) {
+top: 20px;
+}
+
+.animated-icon1.open span:nth-child(1) {
+top: 11px;
+-webkit-transform: rotate(135deg);
+-moz-transform: rotate(135deg);
+-o-transform: rotate(135deg);
+transform: rotate(135deg);
+}
+
+.animated-icon1.open span:nth-child(2) {
+opacity: 0;
+left: -60px;
+}
+
+.animated-icon1.open span:nth-child(3) {
+top: 11px;
+-webkit-transform: rotate(-135deg);
+-moz-transform: rotate(-135deg);
+-o-transform: rotate(-135deg);
+transform: rotate(-135deg);
+}
+
+/* Icon 3*/
+
+.animated-icon2 span:nth-child(1) {
+top: 0px;
+}
+
+.animated-icon2 span:nth-child(2),
+.animated-icon2 span:nth-child(3) {
+top: 10px;
+}
+
+.animated-icon2 span:nth-child(4) {
+top: 20px;
+}
+
+.animated-icon2.open span:nth-child(1) {
+top: 11px;
+width: 0%;
+left: 50%;
+}
+
+.animated-icon2.open span:nth-child(2) {
+-webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+-o-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+
+.animated-icon2.open span:nth-child(3) {
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+transform: rotate(-45deg);
+}
+
+.animated-icon2.open span:nth-child(4) {
+top: 11px;
+width: 0%;
+left: 50%;
+}
+
+/* Icon 4 */
+
+.animated-icon3 span:nth-child(1) {
+top: 0px;
+-webkit-transform-origin: left center;
+-moz-transform-origin: left center;
+-o-transform-origin: left center;
+transform-origin: left center;
+}
+
+.animated-icon3 span:nth-child(2) {
+top: 10px;
+-webkit-transform-origin: left center;
+-moz-transform-origin: left center;
+-o-transform-origin: left center;
+transform-origin: left center;
+}
+
+.animated-icon3 span:nth-child(3) {
+top: 20px;
+-webkit-transform-origin: left center;
+-moz-transform-origin: left center;
+-o-transform-origin: left center;
+transform-origin: left center;
+}
+
+.animated-icon3.open span:nth-child(1) {
+-webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+-o-transform: rotate(45deg);
+transform: rotate(45deg);
+top: 0px;
+left: 8px;
+}
+
+.animated-icon3.open span:nth-child(2) {
+width: 0%;
+opacity: 0;
+}
+
+.animated-icon3.open span:nth-child(3) {
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+transform: rotate(-45deg);
+top: 21px;
+left: 8px;
+}
+
+.timeline-card {
+  position: relative;
+  margin-left: 16px; }
+
+.timeline-card:before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  top: 16px;
+  left: -12px;
+  border: 5px solid;
+  z-index: 2; }
+
+.timeline-body {
+  border-left: 2px solid #E6E9ED; }
+
+.timeline-card-primary:before {
+  border-color: var(--bs-primary); }
+
+.timeline-card-info:before {
+  border-color: var(--bs-info); }
+
+.timeline-card-secondary:before {
+  border-color: var(--bs-secondary); }
+
+.timeline-card-success:before {
+  border-color: var(--bs-teal); }
+
+html {
+  scroll-behavior: smooth; }
+
+html, body {
+  overflow-x: hidden; }
+
+.container {
+  max-width: 1140px; }
+
+.site-title {
+  font-size: 1.25rem;
+  line-height: 2.5rem; }
+
+.site-title a {
+  font-family: var(--mdb-font-roboto);
+  line-height: 1.6;
+  color: #4f4f4f}
+
+.nav-link {
+  padding: 0;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  color: inherit;
+  opacity: 0.8; 
+}
+
+
+.header-social .nav-link {
+  font-size: 1.25rem; }
+
+.nav-link:hover,
+.nav-link:focus {
+  color: inherit;
+  opacity: 1; }
+
+.nav-item + .nav-item {
+  margin-left: 1rem; }
+
+.cover {
+  height: 500px; }
+
+.cover > img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: auto; }
+
+.progress-bar {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px; }
+
+.text-small {
+  font-size: 0.85rem; }
+
+.text-teal {
+  color: var(--bs-teal); }
+
+footer a:not(.nav-link) {
+  color: inherit;
+  border-bottom: 1px dashed;
+  text-decoration: none;
+  cursor: pointer; }
+
+@media (min-width: 48em) {
+  .site-title {
+    float: left; }
+  .site-nav {
+    float: left; } }
+
+@media (max-width: 767px) {
+  /* disable animations on mobile */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: translate(0) scale(1) !important; }
+  .p-5 {
+    padding: 2.5rem 2rem !important; }
+  .portfolio-section .m-5 {
+    margin: 2rem 0 1rem !important; }
+  .portfolio-reverse {
+    flex-direction: column-reverse; }
+  .portfolio-reverse .text-end {
+    text-align: start !important; } }
+
+@media print {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: translate(0) scale(1) !important; }
+  body.bg-light {
+    background-color: #fff !important; }
+  .container {
+    width: auto;
+    max-width: 100%;
+    padding: 0; }
+  .cover {
+    height: 360px;
+    margin-bottom: 1.5rem; }
+  .cover > img {
+    display: none; }
+  .shadow-1-strong {
+    box-shadow: none !important; }
+  .resume-container > .my-5 {
+    margin: 0 !important; }
+  .my-5.p-5 {
+    padding: 1.5rem 0 !important; }
+  .about-section {
+    padding: 0 !important; }
+  .skills-section,
+  .work-experience-section,
+  .education-section,
+  .portfolio-section,
+  .reference-section,
+  .contact-section {
+    padding: 0 !important; }
+  .page-break {
+    padding-top: 5rem;
+    page-break-before: always; } }

@@ -1,0 +1,356 @@
+{% extends 'base_2.html' %}
+{% load static %}
+{% block body %}
+  <div class="page-content">
+    <div class="container">
+      <div class="resume-container">
+        <div class="shadow-1-strong bg-white my-5" id="intro">
+          <div class="bg-info text-white">
+            <div class="cover bg-image">
+              <img src="{% static 'images/header-background.jpg' %}" />
+              <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);backdrop-filter: blur(2px);">
+                <div class="text-center p-5">
+                  <div class="avatar p-1">
+                    {% comment %} <img class="img-thumbnail shadow-2-strong" src="{% static 'images/1.jpg' %}" width="160" height="160" /> {% endcomment %}
+                  </div>
+                  <div class="header-bio mt-3">
+                    <div data-aos="zoom-in" data-aos-delay="0">
+                      <h2 class="h1">Amirhossein Nabipour</h2>
+                      <p>Tech Enthusiast & Coder in Training</p>
+                    </div>
+                    <div class="header-social mb-3 d-print-none" data-aos="zoom-in" data-aos-delay="200">
+                      <nav role="navigation">
+                        <ul class="nav justify-content-center">
+                          <li class="nav-item">
+                            <a class="nav-link" href="https://www.instagram.com/sianabipour" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/sianabipour" title="Github"><i class="fab fa-github"></i><span class="menu-title sr-only">Github</span></a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                    <div class="d-print-none">
+                      <a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3 aos-init aos-animate" href="" data-aos="fade-right" data-aos-delay="700">Download CV</a>
+                      <a class="btn btn-secondary btn-lg shadow-sm mt-1 aos-init aos-animate" href="{% url 'Contact' %}" data-aos="fade-left" data-aos-delay="700">Call me</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="shadow-1-strong bg-light my-5 p-5" id="about">
+          <div class="about-section">
+            <div class="row">
+              <div class="col-md-6">
+                <h2 class="h2 fw-light mb-4">About Me</h2>
+                <div>
+                  {% for about in darbare %}
+                    {{ about.about|safe }}
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="col-md-5 offset-lg-1">
+                <div class="row mt-2">
+                  <h2 class="h2 fw-light mb-4">Bio</h2>
+                  <div class="col-sm-5">
+                    <div class="pb-2 fw-bolder">
+                      <i class="far fa-calendar-alt pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Age
+                    </div>
+                  </div>
+                  <div class="col-sm-7">
+                    <div class="pb-2">23</div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="pb-2 fw-bolder">
+                      <i class="far fa-envelope pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Email
+                    </div>
+                  </div>
+                  <div class="col-sm-7">
+                    <div class="pb-2">sia.nb1379@gmail.com</div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="pb-2 fw-bolder">
+                      <i class="fas fa-phone pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Phone
+                    </div>
+                  </div>
+                  <div class="col-sm-7">
+                    <div class="pb-2">+98 936-560-2081</div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="pb-2 fw-bolder">
+                      <i class="fas fa-map-marker-alt pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Address
+                    </div>
+                  </div>
+                  <div class="col-sm-7">
+                    <div class="pb-2">15 Takhti St., Ashrafi-Esfehani, Tehran, Iran</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="shadow-1-strong bg-white my-5 p-5" id="skills">
+          <div class="skills-section">
+            <h2 class="h2 fw-light mb-4">Professional Skills</h2>
+            <div class="accordion accordion-borderless" id="accordionFlushExampleX">
+              <div class="accordion-item m-2">
+                <h2 class="accordion-header" id="flush-headingOneX"><button data-mdb-collapse-init class="accordion-button" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseOneX" aria-expanded="true" aria-controls="flush-collapseOneX">Languages:</button></h2>
+                <div id="flush-collapseOneX" class="accordion-collapse collapse show" aria-labelledby="flush-headingOneX" data-mdb-parent="#accordionFlushExampleX">
+                  <div class="row">
+                    {% for skill in barname %}
+                      {% if skill.category == 'PL' %}
+                        <div class="accordion-body col-lg-6 col-md-6 col-12">
+                          <div class="mb-3">
+                            <span class="fw-bolder">{{ skill.title }}</span>
+                            <div class="progress my-2 rounded" style="height: 20px">
+                              <div class="progress-bar {{ skill.color }}" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: {{ skill.percentage }}%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">{{ skill.rate }}</div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <div class="accordion accordion-borderless" id="accordionFlushExampleX">
+                <div class="accordion-item m-2">
+                  <h2 class="accordion-header" id="flush-headingTwoX"><button data-mdb-collapse-init class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseTwoX" aria-expanded="false" aria-controls="flush-collapseTwoX">Libraries & Frameworks (Backend):</button></h2>
+                  <div id="flush-collapseTwoX" class="accordion-collapse collapse" aria-labelledby="flush-headingTwoX" data-mdb-parent="#accordionFlushExampleX">
+                    <div class="row">
+                      {% for skill in barname %}
+                        {% if skill.category == 'LB' %}
+                          <div class="accordion-body col-lg-6 col-md-6 col-12">
+                            <div class="mb-3">
+                              <span class="fw-bolder">{{ skill.title }}</span>
+                              <div class="progress my-2 rounded" style="height: 20px">
+                                <div class="progress-bar {{ skill.color }}" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: {{ skill.percentage }}%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">{{ skill.rate }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion accordion-borderless" id="accordionFlushExampleX">
+                <div class="accordion-item m-2">
+                  <h2 class="accordion-header" id="flush-headingThreeX"><button data-mdb-collapse-init class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseThreeX" aria-expanded="false" aria-controls="flush-collapseThreeX">Frontend Development:</button></h2>
+                  <div id="flush-collapseThreeX" class="accordion-collapse collapse" aria-labelledby="flush-headingThreeX" data-mdb-parent="#accordionFlushExampleX">
+                    <div class="row">
+                      {% for skill in barname %}
+                        {% if skill.category == 'FD' %}
+                          <div class="accordion-body col-lg-6 col-md-6 col-12">
+                            <div class="mb-3">
+                              <span class="fw-bolder">{{ skill.title }}</span>
+                              <div class="progress my-2 rounded" style="height: 20px">
+                                <div class="progress-bar {{ skill.color }}" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: {{ skill.percentage }}%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">{{ skill.rate }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion accordion-borderless" id="accordionFlushExampleX">
+                <div class="accordion-item m-2">
+                  <h2 class="accordion-header" id="flush-headingFourX"><button data-mdb-collapse-init class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseFourX" aria-expanded="false" aria-controls="flush-collapseFourX">Libraries & Frameworks (Frontend):</button></h2>
+                  <div id="flush-collapseFourX" class="accordion-collapse collapse" aria-labelledby="flush-headingFourX" data-mdb-parent="#accordionFlushExampleX">
+                    <div class="row">
+                      {% for skill in barname %}
+                        {% if skill.category == 'LF' %}
+                          <div class="accordion-body col-lg-6 col-md-6 col-12">
+                            <div class="mb-3">
+                              <span class="fw-bolder">{{ skill.title }}</span>
+                              <div class="progress my-2 rounded" style="height: 20px">
+                                <div class="progress-bar {{ skill.color }}" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: {{ skill.percentage }}%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">{{ skill.rate }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion accordion-borderless" id="accordionFlushExampleX">
+                <div class="accordion-item m-2">
+                  <h2 class="accordion-header" id="flush-headingFiveX"><button data-mdb-collapse-init class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseFiveX" aria-expanded="false" aria-controls="flush-collapseFiveX">Database:</button></h2>
+                  <div id="flush-collapseFiveX" class="accordion-collapse collapse" aria-labelledby="flush-headingFiveX" data-mdb-parent="#accordionFlushExampleX">
+                    <div class="row">
+                      {% for skill in barname %}
+                        {% if skill.category == 'DB' %}
+                          <div class="accordion-body col-lg-6 col-md-6 col-12">
+                            <div class="mb-3">
+                              <span class="fw-bolder">{{ skill.title }}</span>
+                              <div class="progress my-2 rounded" style="height: 20px">
+                                <div class="progress-bar {{ skill.color }}" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: {{ skill.percentage }}%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">{{ skill.rate }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion accordion-borderless" id="accordionFlushExampleX">
+                <div class="accordion-item m-2">
+                  <h2 class="accordion-header" id="flush-headingSixX"><button data-mdb-collapse-init class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseSixX" aria-expanded="false" aria-controls="flush-collapseSixX">Tools:</button></h2>
+                  <div id="flush-collapseSixX" class="accordion-collapse collapse" aria-labelledby="flush-headingSixX" data-mdb-parent="#accordionFlushExampleX">
+                    <div class="row">
+                      {% for skill in barname %}
+                        {% if skill.category == 'TOOL' %}
+                          <div class="accordion-body col-lg-6 col-md-6 col-12">
+                            <div class="mb-3">
+                              <span class="fw-bolder">{{ skill.title }}</span>
+                              <div class="progress my-2 rounded" style="height: 20px">
+                                <div class="progress-bar {{ skill.color }}" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: {{ skill.percentage }}%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">{{ skill.rate }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion accordion-borderless" id="accordionFlushExampleX">
+                <div class="accordion-item m-2">
+                  <h2 class="accordion-header" id="flush-headingSevenX"><button data-mdb-collapse-init class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseSevenX" aria-expanded="false" aria-controls="flush-collapseSevenX">Document Preparation:</button></h2>
+                  <div id="flush-collapseSevenX" class="accordion-collapse collapse" aria-labelledby="flush-headingSevenX" data-mdb-parent="#accordionFlushExampleX">
+                    <div class="row">
+                      {% for skill in barname %}
+                        {% if skill.category == 'DP' %}
+                          <div class="accordion-body col-lg-6 col-md-6 col-12">
+                            <div class="mb-3">
+                              <span class="fw-bolder">{{ skill.title }}</span>
+                              <div class="progress my-2 rounded" style="height: 20px">
+                                <div class="progress-bar {{ skill.color }}" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: {{ skill.percentage }}%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">{{ skill.rate }}</div>
+                              </div>
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="shadow-1-strong bg-white my-5 p-5" id="experience">
+          <div class="work-experience-section">
+            <h2 class="h2 fw-light mb-4">Work Experience</h2>
+            <div class="timeline">
+              {% for e in tajrobe %}
+                <div class="timeline-card timeline-card-info" data-aos="fade-in" data-aos-delay="0">
+                  <div class="timeline-head px-4 pt-3">
+                    <div class="h5">
+                      {{ e.skill }}
+                      <span class="text-muted h6">
+                        at{% if e.link %}
+                          <a href="{{ e.link }}" target="_blank">{{ e.location }}</a>
+                        {% else %}
+                          {{ e.location }}
+                        {% endif %}
+                      </span>
+                    </div>
+                  </div>
+                  <div class="timeline-body px-4 pb-4">
+                    <div class="text-muted text-small mb-3">{{ e.sdate }} - {{ e.edate }}</div>
+                    <div>{{ e.description|safe }}</div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="shadow-1-strong bg-white my-5 p-5" id="education">
+          <div class="education-section">
+            <h2 class="h2 fw-light mb-4">Education</h2>
+            <div class="timeline">
+              {% for ed in tahsilat %}
+                <div class="timeline-card timeline-card-secondary" data-aos="fade-in" data-aos-delay="0">
+                  <div class="timeline-head px-4 pt-3">
+                    <div class="h5">
+                      {{ ed.certificate }} <span class="text-muted h6">from {{ ed.location }}</span>
+                    </div>
+                  </div>
+                  <div class="timeline-body px-4 pb-4">
+                    <div class="text-muted text-small mb-3">{{ ed.sdate }} - {{ ed.edate }}</div>
+                    <div>{{ ed.description }}</div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="shadow-1-strong bg-white my-5 p-5 d-print-none" id="portfolio">
+          <div class="portfolio-section">
+            <h2 class="h2 fw-light mb-4">Portfolio</h2>
+
+            {% for p in portfolio %}
+              {% if p.reverse %}
+                <div class="row g-0 portfolio-reverse">
+                  <div class="col-md-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+                    <div class="m-4 mt-md-2 text-end">
+                      <p class="text-teal text-small">{{ p.skills }}</p>
+                      <h3>{{ p.name }}</h3>
+                      <p class="text-muted">{{ p.description|safe }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="{{ p.site_name }}" target="_blank"><img class="img-fluid" src="{{ p.image }}" width="800" height="500" /></a>
+                  </div>
+                </div>
+              {% else %}
+                <div class="row g-0 {% if p.reverse %}{% endif %}">
+                  <div class="col-md-6">
+                    <a href="{{ p.site_name }}" target="_blank"><img class="img-fluid" src="{{ p.image }}" width="800" height="500" /></a>
+                  </div>
+                  <div class="col-md-6 d-flex align-items-center" data-aos="fade-left" data-aos-delay="100">
+                    <div class="m-4 mt-md-2">
+                      <p class="text-secondary text-small">{{ p.skills }}</p>
+                      <h3>{{ p.name }}</h3>
+                      <p class="text-muted">{{ p.description|safe }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="shadow-1-strong bg-white my-5 p-5" id="references">
+          <div class="reference-section">
+            <h2 class="h2 fw-light mb-4">Comments</h2>
+            <div class="row">
+              {% for c in comments %}
+                <div class="col-md-6">
+                  <div class="d-flex mb-2">
+                    <div class="header-bio m-3 mb-0">
+                      <h3 class="h6 mb-1" data-aos="fade-left" data-aos-delay="0">{{ c.name }}</h3>
+                      <p class="text-muted text-small" data-aos="fade-left" data-aos-delay="100">{{ c.email }}</p>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <i class="text-secondary fas fa-quote-left"></i>
+                    <p class="lead mx-2" data-aos="fade-left" data-aos-delay="100">{{ c.text }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block title %}
+  Home
+{% endblock %}
