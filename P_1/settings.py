@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1*eg&7lybw)@944nrgda4f07m4r4wow3y#z0pphh0#9=+a-r51'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,6 +127,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL='/media/'
 MEDIA_ROOT= BASE_DIR / "media"
+
 TINYMCE_DEFAULT_CONFIG = {
     'media_url': '/media/',
     'cleanup_on_startup': True,
@@ -158,3 +159,8 @@ TINYMCE_DEFAULT_CONFIG = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+try:
+    from .local_settings import *
+except:
+    pass
