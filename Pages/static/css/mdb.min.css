@@ -5401,6 +5401,7 @@ fieldset:disabled .btn {
   position: relative;
   display: flex;
   align-items: center;
+  text-align: left;
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: 1rem;
