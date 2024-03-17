@@ -1,5 +1,9 @@
 /* Timeline custom component */
 
+
+.accordion-button{
+  text-align: left;
+}
 /* Icon 1 */
 
 .animated-icon1,
