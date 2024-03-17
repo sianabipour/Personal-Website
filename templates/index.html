@@ -31,7 +31,9 @@
                       </nav>
                     </div>
                     <div class="d-print-none">
-                      <a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3 aos-init aos-animate" href="{% static 'files/My_CV.pdf' %}" data-aos="fade-right" data-aos-delay="700">Download CV</a>
+                      {% for c in cv %}
+                        <a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3 aos-init aos-animate" href="{{ c.cv.url }}" data-aos="fade-right" data-aos-delay="700">Download CV</a>
+                      {% endfor %}
                       <a class="btn btn-secondary btn-lg shadow-sm mt-1 aos-init aos-animate" href="{% url 'Contact' %}" data-aos="fade-left" data-aos-delay="700">Reach</a>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from random import  choice
-from Pages.models import Skill , Experience , Comment , Education, About , Portfoilio
+from Pages.models import Skill , Experience , Comment , Education, About , Portfoilio, CV
 
 def homepage(request):
     skills= Skill.objects.all()
@@ -9,6 +9,7 @@ def homepage(request):
     comments = Comment.objects.filter(published=True).order_by('-pk')[0:4]
     education = Education.objects.all()
     portfolio = Portfoilio.objects.all()
+    cv = CV.objects.all()
     context = {
         "barname": skills ,
         "tajrobe": experience,
@@ -16,6 +17,7 @@ def homepage(request):
         "tahsilat": education,
         "darbare":about,
         "portfolio":portfolio,
+        "cv":cv,
     }
     return render(request,'index.html',context)
 

@@ -85,3 +85,5 @@ class Tag(models.Model):
     def __str__(self):
         return f'{self.name}'
     
+class CV(models.Model):
+    cv = models.FileField(_("CV"), upload_to='Files', max_length=256)
