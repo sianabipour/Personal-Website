@@ -1,0 +1,16 @@
+${DOLLAR}TTL    604800
+@       IN      SOA     ns1.sianabipour.ir. admin.sianabipour.ir. (
+                            1         ; Serial
+                       604800         ; Refresh
+                        86400         ; Retry
+                      2419200         ; Expire
+                       604800 )       ; Negative Cache TTL;
+
+@       IN      NS      ns1.sianabipour.ir.
+ns1     IN      A       ${SERVER_IP}
+
+@       IN      NS      ns2.sianabipour.ir.
+ns2     IN      A       ${SERVER_IP}
+
+@       IN      A       ${SERVER_IP}
+www     IN      A       ${SERVER_IP}
