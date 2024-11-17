@@ -159,6 +159,8 @@ TINYMCE_DEFAULT_CONFIG = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CSRF_TRUSTED_ORIGINS= ['https://sianabipour.ir','https://www.sianabipour.ir','http://127.0.0.1']
+
 try:
     from .local_settings import *
 except:
